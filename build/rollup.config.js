@@ -30,6 +30,7 @@ module.exports = {
             presets: [['env', { modules: false }]],
         }),
         alias({
+            '@': path.resolve(__dirname, '../src'),
             ASSETS: path.resolve(__dirname, '../assets'),
         }),
     ],
