@@ -3,37 +3,44 @@
  */
 import { Ipoint } from '@/common/interface';
 
+// 3次贝塞尔曲线
 export default class Bezier {
     private t: number;
-    private start: Ipoint;
-    private end: Ipoint;
+    private p0: Ipoint;
+    private p1: Ipoint;
+    private p2: Ipoint;
+    private p3: Ipoint;
+
+    private bezierStr: string;
 
     private center: Ipoint;
-    constructor(center?: Ipoint) {
-        this.start = {
+    constructor(p1: Ipoint, p2: Ipoint) {
+        this.p0 = {
             x: 0,
             y: 0,
         };
-        this.end = {
+        this.p3 = {
             x: 1,
             y: 1,
         };
-        this.center = center || {
-            x: (this.start.x + this.end.x) / 2,
-            y: (this.start.y + this.end.y) / 2,
-        };
+        this.p1 = p1;
+        this.p2 = p2;
+
+        this.bezierStr = `${p1.x}, ${p1.y}, ${p2.x}, ${p2.y}`;
     }
 
     public getPoint(t: number): Ipoint {
         return {
             x:
-                (1 - t) * (1 - t) * this.start.x +
-                2 * t * (1 - t) * this.center.x +
-                t * t * this.end.x,
+                this.p0.x * Math.pow(1 - t, 3) +
+                3 * this.p1.x * t * Math.pow(1 - t, 2) +
+                3 * this.p2.x * Math.pow(t, 2) * (1 - t) +
+                this.p3.x * Math.pow(t, 3),
             y:
-                (1 - t) * (1 - t) * this.start.y +
-                2 * t * (1 - t) * this.center.y +
-                t * t * this.end.y,
+                this.p0.y * Math.pow(1 - t, 3) +
+                3 * this.p1.y * t * Math.pow(1 - t, 2) +
+                3 * this.p2.y * Math.pow(t, 2) * (1 - t) +
+                this.p3.y * Math.pow(t, 3),
         };
     }
 }

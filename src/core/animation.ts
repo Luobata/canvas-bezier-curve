@@ -34,7 +34,16 @@ export default class Animation {
 
     private getBazier(): void {
         if (this.animationType === 'liner') {
-            this.bezier = new Bezier();
+            this.bezier = new Bezier(
+                {
+                    x: 0,
+                    y: 1,
+                },
+                {
+                    x: 1,
+                    y: 0,
+                },
+            );
         }
     }
 }
