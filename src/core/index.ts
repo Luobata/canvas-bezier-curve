@@ -13,7 +13,8 @@ class Ball {
     public render(): void {
         this.ctx.save();
         this.ctx.fillStyle = 'red';
-        this.ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+        this.ctx.arc(100, 100, this.radius, 0, Math.PI * 2);
+        this.ctx.fill();
         this.ctx.restore();
     }
 }
@@ -33,6 +34,14 @@ export default (): void => {
     canvas.style.height = `${height}px`;
 
     const ball: Ball = new Ball(ctx);
+    const animation: FrameRequestCallback = (): void => {
+        ctx.clearRect(0, 0, width * pixelRatio, height * pixelRatio);
+        ball.render();
+
+        window.requestAnimationFrame(animation);
+    };
+
+    window.requestAnimationFrame(animation);
 
     document.body.appendChild(canvas);
 };
