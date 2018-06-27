@@ -1,13 +1,16 @@
 /**
  * @description canvas-bezier-curve entry
  */
+import Animation from '@/core/animation';
 
 class Ball {
     private ctx: CanvasRenderingContext2D;
     private radius: number = 20;
+    private animation: Animation;
 
     constructor(ctx: CanvasRenderingContext2D) {
         this.ctx = ctx;
+        this.animation = new Animation(100, 500, 5);
     }
 
     public render(): void {
@@ -34,14 +37,14 @@ export default (): void => {
     canvas.style.height = `${height}px`;
 
     const ball: Ball = new Ball(ctx);
-    const animation: FrameRequestCallback = (): void => {
+    const render: FrameRequestCallback = (): void => {
         ctx.clearRect(0, 0, width * pixelRatio, height * pixelRatio);
         ball.render();
 
-        window.requestAnimationFrame(animation);
+        // window.requestAnimationFrame(render);
     };
 
-    window.requestAnimationFrame(animation);
+    window.requestAnimationFrame(render);
 
     document.body.appendChild(canvas);
 };
