@@ -33,7 +33,16 @@ export default class Animation {
     }
 
     public getValue(t: number): number {
-        return this.begin + this.end * this.bezier.getYByTime(t / this.time);
+        return this.begin + this.end * this.bezier.getYByTime(t);
+    }
+
+    public getList(framePerSecond: number = 60): number[] {
+        const list: number[] = [];
+        for (let i: number = 0; i < framePerSecond * this.time; i = i + 1) {
+            list.push(this.getValue(i / (this.time * framePerSecond)));
+        }
+
+        return list;
     }
 
     private getBazier(): void {

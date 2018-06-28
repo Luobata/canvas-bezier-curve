@@ -2,7 +2,8 @@
  * @description Bézier Curve
  */
 import { Ipoint } from '@/common/interface';
-import bezierEasing from 'bezier-easing';
+// import bezierEasing from 'bezier-easing';
+const bezierEasing: Function = require('bezier-easing');
 
 // 3次贝塞尔曲线
 export default class Bezier {
