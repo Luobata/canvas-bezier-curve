@@ -18,6 +18,7 @@ class Ball {
 
     public render(): void {
         this.ctx.save();
+        this.ctx.beginPath();
         this.ctx.fillStyle = 'red';
         if (this.renderList.length) {
             const item: number = this.renderList.shift();
