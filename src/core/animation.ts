@@ -9,7 +9,7 @@ export default class Animation {
     private begin: number;
     private end: number;
     private time: number;
-    private animationType: number | string;
+    private animationType: string;
     private bezier: Bezier;
 
     /**
@@ -111,6 +111,19 @@ export default class Animation {
                 };
                 break;
             default:
+                // point str
+                const strArr: string[] = this.animationType.split(',');
+                if (!strArr || strArr.length !== 4) {
+                    throw new Error('The animation type is not right');
+                }
+                p1 = {
+                    x: parseFloat(strArr[0]),
+                    y: parseFloat(strArr[1]),
+                };
+                p2 = {
+                    x: parseFloat(strArr[2]),
+                    y: parseFloat(strArr[3]),
+                };
         }
 
         this.bezier = new Bezier(p1, p2);
