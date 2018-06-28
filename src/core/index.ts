@@ -12,7 +12,7 @@ class Ball {
 
     constructor(ctx: CanvasRenderingContext2D) {
         this.ctx = ctx;
-        this.animation = new Animation(100, 400, 2, 'in-back-out');
+        this.animation = new Animation(200, 400, 2, 'in-back-out');
         this.renderList = this.animation.getList();
     }
 
@@ -22,9 +22,9 @@ class Ball {
         this.ctx.fillStyle = 'red';
         if (this.renderList.length) {
             const item: number = this.renderList.shift();
-            this.ctx.arc(100, item, this.radius, 0, Math.PI * 2);
+            this.ctx.arc(200, item, this.radius, 0, Math.PI * 2);
         } else {
-            this.ctx.arc(100, 100, this.radius, 0, Math.PI * 2);
+            this.ctx.arc(200, 200, this.radius, 0, Math.PI * 2);
         }
         this.ctx.fill();
         this.ctx.restore();
@@ -37,7 +37,7 @@ export default (): void => {
     const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
 
     const width: number = 500;
-    const height: number = 500;
+    const height: number = 800;
     const pixelRatio: number = window.devicePixelRatio;
 
     canvas.width = width * pixelRatio;
