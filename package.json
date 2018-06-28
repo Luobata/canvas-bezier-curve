@@ -73,5 +73,9 @@
   "bugs": {
     "url": "https://github.com/Luobata/canvas-bezier-curve/issues"
   },
-  "homepage": "https://github.com/Luobata/canvas-bezier-curve#readme"
+  "homepage": "https://github.com/Luobata/canvas-bezier-curve#readme",
+  "dependencies": {
+    "@types/bezier-easing": "^2.0.0",
+    "bezier-easing": "^2.1.0"
+  }
 }

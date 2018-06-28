@@ -32,6 +32,10 @@ export default class Animation {
         this.getBazier();
     }
 
+    public getValue(t: number): number {
+        return this.begin + this.end * this.bezier.getYByTime(t / this.time);
+    }
+
     private getBazier(): void {
         if (this.animationType === 'liner') {
             this.bezier = new Bezier(

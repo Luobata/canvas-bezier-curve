@@ -2,6 +2,7 @@
  * @description Bézier Curve
  */
 import { Ipoint } from '@/common/interface';
+import bezierEasing from 'bezier-easing';
 
 // 3次贝塞尔曲线
 export default class Bezier {
@@ -12,6 +13,7 @@ export default class Bezier {
     private p3: Ipoint;
 
     private bezierStr: string;
+    private easing: Function;
 
     private center: Ipoint;
     constructor(p1: Ipoint, p2: Ipoint) {
@@ -27,6 +29,7 @@ export default class Bezier {
         this.p2 = p2;
 
         this.bezierStr = `${p1.x}, ${p1.y}, ${p2.x}, ${p2.y}`;
+        this.easing = bezierEasing(p1.x, p1.y, p2.x, p2.y);
     }
 
     public getPoint(t: number): Ipoint {
@@ -42,5 +45,9 @@ export default class Bezier {
                 3 * this.p2.y * Math.pow(t, 2) * (1 - t) +
                 this.p3.y * Math.pow(t, 3),
         };
+    }
+
+    public getYByTime(t: number): number {
+        return this.easing(t);
     }
 }
