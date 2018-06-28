@@ -12,7 +12,7 @@ class Ball {
 
     constructor(ctx: CanvasRenderingContext2D) {
         this.ctx = ctx;
-        this.animation = new Animation(100, 500, 2);
+        this.animation = new Animation(100, 400, 2, 'in-back-out');
         this.renderList = this.animation.getList();
     }
 
