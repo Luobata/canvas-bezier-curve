@@ -3,6 +3,7 @@
  */
 import { Ipoint } from '@/common/interface';
 // import bezierEasing from 'bezier-easing';
+
 const bezierEasing: Function = require('bezier-easing');
 
 // 3次贝塞尔曲线
@@ -37,13 +38,13 @@ export default class Bezier {
         return {
             x:
                 this.p0.x * Math.pow(1 - t, 3) +
-                3 * this.p1.x * t * Math.pow(1 - t, 2) +
-                3 * this.p2.x * Math.pow(t, 2) * (1 - t) +
+                this.p1.x * t * Math.pow(1 - t, 2) * 3 +
+                this.p2.x * Math.pow(t, 2) * (1 - t) * 3 +
                 this.p3.x * Math.pow(t, 3),
             y:
                 this.p0.y * Math.pow(1 - t, 3) +
-                3 * this.p1.y * t * Math.pow(1 - t, 2) +
-                3 * this.p2.y * Math.pow(t, 2) * (1 - t) +
+                this.p1.y * t * Math.pow(1 - t, 2) * 3 +
+                this.p2.y * Math.pow(t, 2) * (1 - t) * 3 +
                 this.p3.y * Math.pow(t, 3),
         };
     }

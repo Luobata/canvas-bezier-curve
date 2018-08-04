@@ -1,9 +1,9 @@
-import Bezier from '@/core/Bezier';
-import { Ipoint } from '@/common/interface';
-
 /**
  * @description animation module
  */
+
+import { Ipoint } from '@/common/interface';
+import Bezier from '@/core/Bezier';
 
 export default class Animation {
     private begin: number;
