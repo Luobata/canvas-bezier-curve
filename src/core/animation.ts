@@ -17,7 +17,7 @@ export default class Animation {
      * @param begin 初始value
      * @param end 最终value
      * @param time 持续时间
-     * @param animationType 运动类型 ease-in ease-out
+     * @param animationType 运动类型 etc:ease-in ease-out
      */
     constructor(
         begin: number,

@@ -2,6 +2,7 @@
  * @description canvas-bezier-curve entry
  */
 import Animation from '@/core/animation';
+import type from '@/core/type';
 
 class Ball {
     public renderList: number[];
@@ -15,6 +16,8 @@ class Ball {
         // this.animation = new Animation(200, 400, 2, 'in-back-out');
         this.animation = new Animation(200, 400, 2, '.68,0 ,1, 1');
         this.renderList = this.animation.getList();
+
+        // this.renderList = type.getList({ x: 0, y: 0 }, { x: 400, y: 400 }, 2);
     }
 
     public render(): void {
