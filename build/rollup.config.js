@@ -1,4 +1,3 @@
-import rollup from 'rollup';
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 import alias from 'rollup-plugin-alias';
@@ -7,17 +6,14 @@ import resolve from 'rollup-plugin-node-resolve';
 import path from 'path';
 import typescript from 'rollup-plugin-typescript2';
 
-const root = path.resolve(__dirname, './');
-const port = 10002;
-
 module.exports = {
-    input: 'src/bundle.ts',
-    name: 'bundle',
+    input: 'src/core/animation.ts',
+    name: 'animation',
     sourcemap: true,
     output: {
-        file: 'dist/bundle.esm.js',
+        file: 'dist/animation.esm.js',
         format: 'es',
-        name: 'bundle',
+        name: 'animation',
         sourcemap: true,
     },
     plugins: [

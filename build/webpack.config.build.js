@@ -16,12 +16,12 @@ devWebpackConfig.plugins = [];
 
 var prodWebpackConfig = {
     devtool: productionSourceMap ? '#source-map' : false,
-    entry: root + '/src/index.js',
+    entry: root + '/src/entry.js',
     output: {
         path: assetsRoot,
-        library: 'bundle',
+        library: 'animation',
         libraryTarget: 'umd',
-        filename: 'bundle.js',
+        filename: 'animation.js',
     },
     plugins: [
         new webpack.DefinePlugin({
