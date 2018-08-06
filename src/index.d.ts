@@ -3,12 +3,12 @@ declare class Animation {
         begin: number,
         end: number,
         time: number,
-        animationType: string,
+        animationType?: string,
     );
 
     getValue(t: number): number;
 
-    getList(framePerSecond: number): number[];
+    getList(framePerSecond?: number): number[];
 }
 
 export = Animation;
