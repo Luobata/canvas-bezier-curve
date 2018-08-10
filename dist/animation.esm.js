@@ -72,7 +72,7 @@ var Animation = function () {
     _createClass(Animation, [{
         key: 'getValue',
         value: function getValue(t) {
-            return this.begin + this.end * this.bezier.getYByTime(t);
+            return this.begin + (this.end - this.begin) * this.bezier.getYByTime(t);
         }
     }, {
         key: 'getList',
