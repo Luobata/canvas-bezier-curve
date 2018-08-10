@@ -34,7 +34,7 @@ export default class Animation {
     }
 
     public getValue(t: number): number {
-        return this.begin + this.end * this.bezier.getYByTime(t);
+        return this.begin + (this.end - this.begin) * this.bezier.getYByTime(t);
     }
 
     public getList(framePerSecond: number = 60): number[] {
